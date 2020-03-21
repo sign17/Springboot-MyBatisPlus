@@ -1,0 +1,31 @@
+server:
+  port: 8089
+logging:
+  level:
+    root: info
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/tttt?useUnicode=true&characterEncoding=utf8&useSSL=false
+    username: root
+    password: 123456
+#    druid:
+    initialSize: 5
+    minIdle: 5
+    maxActive: 20
+    maxWait: 60000
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: SELECT 1 FROM DUAL
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    filters: stat,wall
+    maxPoolPreparedStatementPerConnectionSize: 20
+    useGlobalDataSourceStat: true
+    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
+    removeAbandonedTimeout: 180
+    # 合并多个DruidDataSource的监控数据
+    #useGlobalDataSourceStat: true
